@@ -1,5 +1,5 @@
 .publication-list {
-	padding-left: 145px; /* should be greater than the filter-bar width */
+	margin-left: 145px; /* should be greater than the filter-bar width */
 	margin-top: 25px;
 }
 

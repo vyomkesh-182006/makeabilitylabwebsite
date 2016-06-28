@@ -60,9 +60,9 @@
 	    // update the filtered items whenever the filter textbox changes
 	    // note: it's not enough just to bind to keyup, since there are other 
 		//       ways for the text to change
-	    $("#filter-textbox").on("propertychange change keyup paste input", function(){
-		filterBar.applyFilter();
-	    });
+	    //$("#filter-textbox").on("propertychange change keyup paste input", function(){
+		//filterBar.applyFilter();
+	    //});
 	    
 	    return this;
 	};
