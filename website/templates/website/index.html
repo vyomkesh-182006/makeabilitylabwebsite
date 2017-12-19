@@ -43,14 +43,20 @@
               https://codepen.io/Remedy/pen/ZYJrpp
               https://stackoverflow.com/questions/15757036/creating-a-zoom-effect-on-an-image-on-hover-using-css
     -->
-    <!-- TODO: add in a "more..." somewhere--maybe underneat the section header, maybe after last row centered -->
     <div id="makelab-recent-projects" class="container-fluid makelab-content-container">
         <h1 class="section-header" style="margin-top:25px">Recent Projects</h1>
         <div class="section">
             {% for project in projects|slice:"8" %}
                 <div class="col-xs-12 col-md-3 project-column">
                     <a href="{% url 'website:project' project.short_name %}">
-                        <img src="{% thumbnail project.gallery_image 300x180 box=project.cropping crop detail %}">
+                        <div class="artifact-thumbnail-hover">
+                            <img src="{% thumbnail project.gallery_image 300x180 box=project.cropping crop detail %}">
+                            <div class="artifact-overlay">
+                                <div class="artifact-overlay-content">
+                                    <a href="{% url 'website:project' project.short_name %}">{{ project.name }}</a>
+                                </div>
+                            </div>
+                        </div>
                         <p class="artifact-title">{{ project.name }}</p>
                     </a>
                     {# We only add in this extra spacer for the first row #}
@@ -173,27 +179,33 @@
             <!-- TODO: add in date of talk somewhere--or better yet, age? e.g., 4d, 4months ago -->
             {% for talk in talks|slice:"8" %} <!-- Switch slice to '4' to just display 4 talks -->
                 <div class="col-xs-12 col-md-3">
-                    <div class="talk2-thumbnail">
-                        <!-- TODO: I don't get this thumbnail stuff; need to talk to Lee about it -->
+                    <div class="talk2-thumbnail artifact-thumbnail-hover">
+
                         <a href="../../media/{{ talk.pdf_file }}">
                             <img src="{% thumbnail talk.thumbnail 420x0 detail %}" class="talk2-thumbnail-image img-responsive">
                         </a>
+
+                        <!-- TODO: this artifact-overlay is not working. Nothing is showing up -->
+                        <div class="artifact-overlay">
+                            <div class="artifact-overlay-content">
+                                {% if talk.pdf_file %}<a href="../../media/{{ talk.pdf_file }}">PDF</a>{% endif %}
+                                {% if talk.raw_file %}<a href="../../media/{{ talk.raw_file }}">PPTX</a>{% endif %}
+                            </div>
+                        </div>
                     </div>
                     <div class="talk-text">
-                        <!-- TODO: href the talk title as well -->
+                        <!-- Note that we don't href the talk title as it would be ambiguous whether to load PDF or raw PPTX -->
                         <span class="artifact-title line-clamp">{{ talk.title }}</span>
                         <p class="artifact-venue">{{ talk.forum_name }}</p>
                         <p class="artifact-authors">
-                            <!-- TODO: figure out how to remove vertical space between speakers and subtitle -->
-
                             {% for speaker in talk.speakers.all %}
                                 <a href="{% url 'website:member' speaker.id %}">{{ speaker.get_full_name }}</a>{% if not forloop.last %}, {% endif %}
                             {% endfor %}
                         </p>
-                        <!-- TODO: add in YouTube of talk? -->
                     </div>
                 </div>
             {% endfor %}
+
             <div class="col-xs-12 see-all-artifacts">
                 <a href="{% url 'website:talks' %}">See All Talks ></a>
             </div>
