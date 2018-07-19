@@ -233,7 +233,9 @@ function formatGroup(group) {
 // helper function to populate the template with the publication data
 function formatPublication(pub, filter) {
 	if(filter) filter = filter.toLowerCase();
-    console.log("Formatting pub "+pub.title);
+
+	// console.log("Formatting pub "+pub.title);
+
 	var publicationData = publicationTemplate.clone();
 	publicationData.find(".publication-id").html(pub.id);
 	publicationData.find(".publication-thumbnail-link").attr("href", pub.pdf);
@@ -276,11 +278,17 @@ function formatPublication(pub, filter) {
 		publicationData.find(".publication-acceptance-rate").css("display", "none");
 	}
 
-	if(pub.to_appear) {
-        publicationData.find(".publication-to-appear").css("display", "block");
+	console.log(pub.title + "to appear: " + pub.to_appear + " " + typeof(pub.to_appear));
+	if(pub.to_appear === true) {
+		//console.log(pub.title + " in to appear true ");
+        publicationData.find("publication-to-appear-text").css("display", "block");
     } else {
-    	publicationData.find(".publication-to-appear").css("display", "none");
+		console.log("*********** " + pub.title + " in to appear false ");
+		//TODO: I have no idea why this isn't working. I've been trying to fix it
+		//but this is called correctly--it just doesn't seem to take effect
+    	publicationData.find("publication-to-appear-text").css("display", "none");
     }
+    //console.log("hello world");
 
     if(pub.keywords.length > 0)
     {

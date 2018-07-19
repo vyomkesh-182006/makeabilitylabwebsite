@@ -755,7 +755,8 @@ class Publication(models.Model):
 
     # Returns true if the publication date happens in the future (e.g., tomorrow or later)
     def to_appear(self):
-        return self.date and self.date > date.today()
+        # print(str(self) + " " + str(self.date) + " " + str(self.date > date.today()))
+        return self.date > date.today()
 
     def __str__(self):
         return self.title
