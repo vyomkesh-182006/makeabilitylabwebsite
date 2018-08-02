@@ -26,12 +26,21 @@ function filterByFilteringScheme() {
         return $(this).attr("name") !== "header";
     }
 
+    //find duplicates and remove them if their "duplicate filter" doesn't match the current filter.
+    //if the duplicated element is the first element, then don't filter it out. We need at least one element of this type in the list.
+    if($(this).hasAttribute("duplicate-on")){
+        if($(this).attr("duplicate-on") !== filteringScheme.split('(')[0] &&
+            $(this).isEqualNode($(this).parent().filter('[duplicate-on=' + $(this).attr("duplicate-on") + ']')[0])){
+            return false;
+        }
+    }
+
     // check if we have the property, if not return false.
     if(!hasProperty($(this).find(currentIsotopeProperties['sortFilterDataContainer'])[0].textContent, filteringScheme.split('(')[0])) {
         return false;
     }
 
-    // get filterable data
+        // get filterable data
     var data = getValueOfProperty($(this).find(currentIsotopeProperties['sortFilterDataContainer'])[0].textContent, filteringScheme.split('(')[0]);
     console.log("filtering data " + data);
 
