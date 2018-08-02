@@ -28,9 +28,11 @@ function filterByFilteringScheme() {
 
     //find duplicates and remove them if their "duplicate filter" doesn't match the current filter.
     //if the duplicated element is the first element, then don't filter it out. We need at least one element of this type in the list.
-    if($(this).hasAttribute("duplicate-on")){
-        if($(this).attr("duplicate-on") !== filteringScheme.split('(')[0] &&
-            $(this).isEqualNode($(this).parent().filter('[duplicate-on=' + $(this).attr("duplicate-on") + ']')[0])){
+
+    var attr = $(this).attr('duplicate-on');
+    if(typeof attr !== typeof undefined && attr !== false){
+        if($(this).attr('duplicate-on') !== filteringScheme.split('(')[0] &&
+            $(this).isEqualNode($(this).parent().filter('[duplicate-on]')[0])){
             return false;
         }
     }
