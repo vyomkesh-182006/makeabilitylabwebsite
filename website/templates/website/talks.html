@@ -125,12 +125,7 @@
         <div class="talk-list" id="main-content">
             {% for talk in talks %}
                 {% for project in talk.projects.all %}
-                    <!-- the first item isn't a copy, and can't be -->
-                    {% if project == talk.projects.0 %}
-                        <div class="item">
-                    {% else %}
-                        <div class="item" duplicate-on="Project">
-                    {% endif %}
+                    <div class="item" duplicate-on="Project" itemid="{{ talk.id }}">
                         <div style="width: 100%; height: 300px; contain: content;">
                             <div class="talk2-thumbnail">
                                 <!-- TODO: I don't get this thumbnail stuff; need to talk to Lee about it -->
