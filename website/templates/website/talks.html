@@ -49,7 +49,7 @@
             "slideshare": "{{ talk.slideshare_url }}",
 			"thumbnail": "{% thumbnail talk.thumbnail 420x0 detail %}",
 			"location": "{{talk.location}}",
-			"talk_type": "{{talk.talk_venue_type}}",
+			"talk_type": "{{talk.forum_name}}",
 			{% if talk.award %}"award": "{{ talk.award }}",{% endif %}
 			{% if talk.total_papers_accepted and pub.total_papers_submitted %}
 			"total_papers_accepted": {{talk.total_papers_accepted}},
