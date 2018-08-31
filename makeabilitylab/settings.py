@@ -123,6 +123,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'easy_thumbnails',
     'sortedm2m',
+    'jquery',
     'rest_framework'
 ]
 

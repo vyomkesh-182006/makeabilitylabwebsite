@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import widgets
 from .models import Person, Publication, Position, Talk, Project, Poster, Keyword, News, Banner, Video, Project_header, Photo, Project_umbrella, Project_Role, Sponsor
 from website.admin_list_filters import CurrentMemberListFilter, PositionListFilter, PubVenueTypeListFilter, PubVenueListFilter
+from website.forms import PositionModelForm
 
 from django.http import HttpResponse
 from datetime import datetime
@@ -34,6 +35,21 @@ class PositionInline(admin.StackedInline):
     # This specifies that the Inline is linked to the main owner of the position rather than any of the advisor roles.
     fk_name = "person"
 
+   #form = PositionModelForm
+   #fieldsets = (
+   #    (None, {'fields': ['person', 'start_date', 'end_date', 'advisor', 'co_advisor', 'grad_mentor', 'role', 'school']}),
+   #    ('Title', {
+   #        'fields': ('title',),
+   #        'classes': ('title',)
+   #    }),
+   #    ('Department', {
+   #        'fields': (('department'),),
+   #        'classes': ('data',)
+   #    })
+   #)
+
+    class Media:
+        js = ('website/js/dropdown/base.js',)
     # This specifies that the field appears only once (by default)
     extra = 0
 
