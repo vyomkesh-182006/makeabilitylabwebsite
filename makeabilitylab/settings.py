@@ -124,7 +124,8 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'sortedm2m',
     'sortedm2m_filter_horizontal_widget',
-    'rest_framework'
+    'rest_framework',
+    'django_select2'
 ]
 
 MIDDLEWARE = [
