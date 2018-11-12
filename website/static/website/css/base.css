@@ -461,8 +461,8 @@ h5 {
 	background-color: black; /* should be same color as navbar header */
 	padding-right: 5px;
 	padding-left: 5px;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 11px;
+	padding-bottom: 11px;
 }
 
 .makelab-footer-affiliations-row{
@@ -472,13 +472,9 @@ h5 {
 }
 
 .makelab-footer-affiliation-logo{
-	/*height: 75px;*/
-	max-height: 30px;
-
-	/* Center content. See center-block in bootstrap.css */
+	max-height: 37px;
 	display: block;
-  	margin-right: auto;
-  	margin-left: auto;
+  	margin: auto;
 }
 
 .makelab-footer-affiliation-col{
@@ -486,6 +482,7 @@ h5 {
 	margin-bottom: 10px;
 	margin-right: 5px;
 	margin-left: 5px;
+	width: 18%;
 }
 
 .makelab-footer-col{
@@ -594,6 +591,9 @@ h5 {
 			width: 35%;
 		}  
 		.makelab-footer-links{
+			display: none;
+		}
+		.makelab-footer-affiliations{
 			display: none;
 		}
 }
