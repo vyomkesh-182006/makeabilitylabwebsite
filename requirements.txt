@@ -1,16 +1,16 @@
 # Run `pip3 install -r requirements.txt` to install dependencies
 
-django==2.1.15
+django==3.0.8
 psycopg2>=2.7,<3.0
 djangorestframework
 beautifulsoup4
 wand==0.4.4
 bibtexparser==1.0.1
 Pillow==6.2.0
-django-extensions==2.0.7
-django-image-cropping==1.2.0
-django-sortedm2m==1.5.0
-easy_thumbnails==2.5
+django-extensions==3.0.2 # https://github.com/django-extensions/django-extensions
+django-image-cropping==1.4 # https://github.com/jonasundderwolf/django-image-cropping
+django-sortedm2m==3.0 # https://github.com/jazzband/django-sortedm2m
+easy_thumbnails==2.7 # https://pypi.org/project/easy-thumbnails/#history
 xmltodict==0.11.0
 google-api-python-client==1.5.3
 pyOpenSSL
