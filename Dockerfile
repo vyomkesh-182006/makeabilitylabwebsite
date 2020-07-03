@@ -13,7 +13,7 @@
 # Note, some online sources say that you should put FROM django here (e.g., https://runnable.com/docker/python/dockerize-your-django-application)
 # but, in fact, you should NOT do this according to the official docs (as this approach has been deprecated). 
 # See: https://hub.docker.com/_/django/
-FROM python:3
+FROM python:3.8
 
 # Setup some other prereqs needed:
 # TODO: we may want to consider adding pip here as I'm getting warnings about old pip
